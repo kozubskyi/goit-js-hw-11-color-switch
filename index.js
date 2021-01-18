@@ -29,15 +29,17 @@ let intervalId = 0;
 refs.startBtn.addEventListener('click', changeBodyBackground);
 
 function changeBodyBackground() {
-  intervalId = setInterval(() => {
-    let colorIndex = randomIntegerFromInterval(0, colors.length - 1);
-    localStorage.setItem('body-bg-color', colors[colorIndex]);
-    refs.body.style.backgroundColor = colors[colorIndex];
-    console.log(`Выбран цвет ${colorIndex}: ${colors[colorIndex]}`);
-  }, 1000);
+  intervalId = setInterval(updateBodyAttribute, 1000);
 
   refs.startBtn.setAttribute('disabled', '');
   refs.stopBtn.removeAttribute('disabled');
+}
+
+function updateBodyAttribute() {
+  let colorIndex = randomIntegerFromInterval(0, colors.length - 1);
+  localStorage.setItem('body-bg-color', colors[colorIndex]);
+  refs.body.style.backgroundColor = colors[colorIndex];
+  console.log(`Выбран цвет ${colorIndex}: ${colors[colorIndex]}`);
 }
 
 refs.stopBtn.addEventListener('click', stopChangingBodyBackground);
