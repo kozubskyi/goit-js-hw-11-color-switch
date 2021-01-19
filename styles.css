@@ -11,7 +11,8 @@ body {
 
 button {
   font-size: 48px;
-  font-family: century gothic, san-serif;
+  font-family: century gothic, serif;
+  font-weight: bold;
 
   display: flex;
   justify-content: center;
