@@ -25,10 +25,17 @@ if (localStorage.getItem('body-bg-color') !== null) {
 }
 refs.stopBtn.setAttribute('disabled', '');
 let intervalId = null;
+let isBackgroundChanging = false;
 
 refs.startBtn.addEventListener('click', changeBodyBackground);
 
 function changeBodyBackground() {
+  if (isBackgroundChanging) {
+    return;
+  }
+
+  isBackgroundChanging = true;
+
   intervalId = setInterval(updateBodyAttribute, 1000);
 
   refs.startBtn.setAttribute('disabled', '');
@@ -45,6 +52,7 @@ function updateBodyAttribute() {
 refs.stopBtn.addEventListener('click', stopChangingBodyBackground);
 
 function stopChangingBodyBackground() {
+  isBackgroundChanging = false;
   clearInterval(intervalId);
   refs.stopBtn.setAttribute('disabled', '');
   refs.startBtn.removeAttribute('disabled');
