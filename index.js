@@ -24,7 +24,7 @@ if (localStorage.getItem('body-bg-color') !== null) {
   );
 }
 refs.stopBtn.setAttribute('disabled', '');
-let intervalId = 0;
+let intervalId = null;
 
 refs.startBtn.addEventListener('click', changeBodyBackground);
 
