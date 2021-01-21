@@ -46,7 +46,7 @@ function updateBodyAttribute() {
   let colorIndex = randomIntegerFromInterval(0, colors.length - 1);
   localStorage.setItem('body-bg-color', colors[colorIndex]);
   refs.body.style.backgroundColor = colors[colorIndex];
-  console.log(`Выбран цвет ${colorIndex}: ${colors[colorIndex]}`);
+  console.log(`Выбран цвет с индексом ${colorIndex}: ${colors[colorIndex]}`);
 }
 
 refs.stopBtn.addEventListener('click', stopChangingBodyBackground);
